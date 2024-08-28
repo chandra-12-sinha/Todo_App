@@ -27,5 +27,5 @@ function Todo({todoData, isFinished, changeFinished,onDelete,onEdit}) {
     </div>
   )
 }
-
+ 
 export default Todo

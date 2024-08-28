@@ -1,19 +1,21 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import "./AddTodo.css"
+import TodoDispatchContext from "../../Context/TodoDispatchContext";
 
 function AddTodo({updateList}) {
     const[inputText, setInputText] = useState('');
+    const {dispatch} = useContext(TodoDispatchContext);
   return (
     <div className='add-wrapper'>  
       <input 
       className='input'
        type="text"
         placeholder='Enter a new todo..'
-         value={inputText} 
+         value={inputText}  
          onChange={(e)=>setInputText(e.target.value)}/>
     
     
-    <button onClick={()=>{ updateList(inputText); setInputText('');}}>Add</button>
+    <button onClick={()=>{ dispatch({type: 'add_todo', payload:{todoData: inputText}}); setInputText('')}}>Add</button>
     </div>
   )
 }
