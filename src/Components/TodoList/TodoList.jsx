@@ -7,7 +7,9 @@ import { useSelector } from "react-redux";
 
 function TodoList({deleteTodo, finishedTodo, editTodo}){
 
-  const list = useSelector((state)=> state.todo);
+  const list = useSelector((state)=> state.todo.todoList);
+  // console.log(list);
+  
 
   // const list = useSelector((state) => {
   //   console.log(state); // Check what the state looks like
@@ -15,15 +17,15 @@ function TodoList({deleteTodo, finishedTodo, editTodo}){
   // });
 
   function onFinished(todo, isFinished){
-    finishedTodo(todo, isFinished)
+    finishedTodo({todo, isFinished})
   }
      
   function onDelete(todo){
-    deleteTodo(todo);
+    deleteTodo({todo});
   }
 
   function onEdit(todo, todoText){
-    editTodo(todo, todoText);
+    editTodo({todo, todoText});
   }
 
   return (

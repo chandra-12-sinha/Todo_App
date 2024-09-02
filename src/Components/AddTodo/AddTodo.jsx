@@ -1,6 +1,6 @@
-// import { useContext, useState } from "react"
+
 import "./AddTodo.css"
-// import TodoDispatchContext from "../../Context/TodoDispatchContext";
+
 import { useState } from "react";
 
 function AddTodo({addTodo}) {
@@ -20,7 +20,7 @@ function AddTodo({addTodo}) {
     
     <button
     onClick={()=>{
-      addTodo(inputText);
+    addTodo({todoText: inputText});
       setInputText('');
     }}> Add</button>
     
